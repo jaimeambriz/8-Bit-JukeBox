@@ -45,7 +45,8 @@ namespace _8_Bit_JukeBox.Models
 
         void BuildSongMenu()
         {
-
+            Console.WriteLine("Sub Menu");
+            Console.WriteLine();
             SongMenu = new Menu("Song Menu", new List<MenuOption>{
                 new MenuOption (PrintSongs, "View All Songs"),
                 new MenuOption (GoBack, "Go Back")
@@ -56,12 +57,13 @@ namespace _8_Bit_JukeBox.Models
         {
 
             Console.Clear();
+            Console.WriteLine("Which Song Would You Like to Hear?");
+            Console.WriteLine();
             int count = 1;
             foreach (var song in Songs)
             {
                 Console.WriteLine($"{count++} {song.Title} ");
             }
-            Console.WriteLine("Which Song Would You Like to Hear?");
             var input = Console.ReadLine();
             int selection = -1;
             bool valid = Int32.TryParse(input, out selection);
