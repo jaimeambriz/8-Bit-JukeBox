@@ -30,18 +30,34 @@ namespace _8_Bit_JukeBox.Models
             while (Playing)
             {
                 Console.Clear();
-                Console.WriteLine("You are playing Tetris");
+                Console.WriteLine("Enjoy the song!");
                 Console.ReadLine();
                 foreach (var note in Notes)
                 {
                     if (note.Type == "beep")
                     {
+
                         Console.Beep(note.Frequency, note.Duration);
                     }
                     else
                     {
                         Thread.Sleep(note.Duration);
                     }
+                }
+                Console.WriteLine("Would You Like to Hear it Again? Y/N");
+                string input = Console.ReadLine().ToLower();
+                if (input == "no" || input == "n")
+                {
+                    Playing = false;
+
+                }
+                else if (input == "yes" || input == "yes")
+                {
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Please Input Yes or No");
                 }
             }
             Playing = false;

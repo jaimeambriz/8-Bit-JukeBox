@@ -63,14 +63,15 @@ namespace _8_Bit_JukeBox.Models
             }
             Console.WriteLine("Which Song Would You Like to Hear?");
             var input = Console.ReadLine();
-            var selection = -1;
-            Int32.TryParse(input, out selection);
+            int selection = -1;
+            bool valid = Int32.TryParse(input, out selection);
 
-            if (selection == 1)
+            if (!valid || selection <= 0 || selection > Songs.Count)
             {
-                Songs[selection - 1].Play();
+                Console.WriteLine("Please Input a Valid Selection");
             }
 
+            Songs[selection - 1].Play();
 
         }
         public void MainMenuSelection()
