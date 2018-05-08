@@ -23,6 +23,7 @@ namespace _8_Bit_JukeBox.Models
 
         Menu BuildMainMenu()
         {
+
             return new Menu(
             "Main Menu",
                 new List<MenuOption>
@@ -45,8 +46,7 @@ namespace _8_Bit_JukeBox.Models
 
         void BuildSongMenu()
         {
-            Console.WriteLine("Sub Menu");
-            Console.WriteLine();
+
             SongMenu = new Menu("Song Menu", new List<MenuOption>{
                 new MenuOption (PrintSongs, "View All Songs"),
                 new MenuOption (GoBack, "Go Back")
@@ -68,9 +68,10 @@ namespace _8_Bit_JukeBox.Models
             int selection = -1;
             bool valid = Int32.TryParse(input, out selection);
 
-            if (!valid || selection <= 0 || selection > Songs.Count)
+            if (!valid || selection <= 0 || selection > Songs.Count)//error here on bad selection
             {
                 Console.WriteLine("Please Input a Valid Selection");
+                return;
             }
 
             Songs[selection - 1].Play();

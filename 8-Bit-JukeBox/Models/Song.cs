@@ -31,7 +31,6 @@ namespace _8_Bit_JukeBox.Models
             {
                 Console.Clear();
                 Console.WriteLine("Enjoy the song!");
-                Console.ReadLine();
                 foreach (var note in Notes)
                 {
                     if (note.Type == "beep")
@@ -51,16 +50,8 @@ namespace _8_Bit_JukeBox.Models
                     Playing = false;
 
                 }
-                else if (input == "yes" || input == "yes")
-                {
-                    continue;
-                }
-                else
-                {
-                    Console.WriteLine("Please Input Yes or No");
-                }
+
             }
-            Playing = false;
         }
 
     }
